@@ -15,12 +15,12 @@ buildscript {
 }
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
-        minSdkVersion 17
-        targetSdkVersion 26
+        minSdkVersion 21
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -48,9 +48,11 @@ repositories {
 }
 
 dependencies {
-    compile fileTree(dir: "libs", include: ["*.jar"])
-    compile(name:'line-sdk-5.0.1', ext:'aar') { transitive = true }
-    compile "com.android.support:appcompat-v7:26.0.1"
-    compile "com.android.support:customtabs:26.0.1"
-    compile "com.facebook.react:react-native:+"  // From node_modules
+    def supportLibVersion = "28.0.0"
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation(name:'line-sdk-5.0.1', ext:'aar') { transitive = true }
+    implementation "com.android.support:appcompat-v7:" + supportLibVersion
+    implementation "com.android.support:customtabs:" + supportLibVersion
+    implementation "com.facebook.react:react-native:+"  // From node_modules
 }
